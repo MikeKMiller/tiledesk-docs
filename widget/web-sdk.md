@@ -1,6 +1,6 @@
 # Web SDK
 
-#### Web SDK ver 2.0
+#### Web SDK ver 3.0
 
 This guide will show you how to get started as quickly as possible with the Web SDK from TileDesk. The Web SDK will give businesses and developers the flexibility to build and customize a chat experience that meet their specific design/brand requirements.
 
@@ -17,8 +17,8 @@ To chat with your visitors embed the widget on your site. Copy the following scr
             (function(d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id; //js.async=!0;
-            js.src = "https://widget.tiledesk.com/v2/tiledesk.js";
+            js = d.createElement(s); js.id = id; 
+            js.src = "https://widget.tiledesk.com/v3/launch.js";
             fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'tiledesk-jssdk'));
     </script>
@@ -29,6 +29,8 @@ To get your TILEDESK\_PROJECT\_ID go to the TileDesk Dashboard and click on the 
 ![](https://raw.githubusercontent.com/chat21/chat21-web-widget/master/docs/tiledesk-dashboard-widget-screenshots.png)
 
 ### Configuration
+
+Widget version 3.0 supports remote configuration of most parameters directly from the Widget menu of the Dashboard.
 
 You can customize the widget passing these parameters to window.tiledeskSettings object:
 
@@ -50,6 +52,8 @@ You can customize the widget passing these parameters to window.tiledeskSettings
 * **fullscreenMode**: if it is true, the chat window is open in fullscreen mode. Permitted values: true, false. Default value : false
 * **themeColor**: allows you to change the main widget's color \(color of the header, color of the launcher button, other minor elements\). Permitted values: Hex color codes, e.g. \#87BC65 and RGB color codes, e.g. rgb\(135,188,101\)
 * **themeForegroundColor**: allows you to change text and icons' color. Permitted values: Hex color codes, e.g. \#425635 and RGB color codes, e.g. rgb\(66,86,53\)
+* **departmentID:** to skip departments selection, you can set the department ID upon which the widget must start the new conversation.
+* **isShown:** If true \(default\) the widget is shown otherwise \(false\) the widget is hidden.
 * **showWidgetNameInConversation**. If you want to display the widget title in the conversations, set the showWidgetNameInConversation field to true. It is advisable if you need to manage multiple projects. Value type : boolean. The default value is false.
 * **allowTranscriptDownload**: allows the user to download the chat transcript. The download button appears when the chat is closed by the operator. Permittet values: true, false. Default value: false
 * **marginX**: Set the side margin, left or right depending on the align property. Default value : 20px
@@ -74,7 +78,7 @@ You can customize the widget passing these parameters to window.tiledeskSettings
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
         js = d.createElement(s); js.id = id; //js.async=!0;
-        js.src = "./tiledesk.js";
+        js.src = "https://widget.tiledesk.com/v3/launch.js";
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'tiledesk-jssdk'));
     </script>
@@ -93,8 +97,8 @@ You can customize the widget passing these parameters to window.tiledeskSettings
     (function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id; //js.async=!0;
-      js.src = "https://widget.tiledesk.com/tiledesk.js";
+      js = d.createElement(s); js.id = id; 
+      js.src = "https://widget.tiledesk.com/v3/launch.js";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'tiledesk-jssdk'));
 </script>
@@ -118,11 +122,69 @@ This will minimize the widget:
 window.tiledesk.close();
 ```
 
+### Hide the widget
+
+This will hide the widget:
+
+```text
+window.tiledesk.hide();
+```
+
+### Show the widget
+
+This will show the widget:
+
+```text
+window.tiledesk.show();
+```
+
+### 
+
+### 
+
+### Reinitialize the widget
+
+If your app is characterized by very few page refreshes \(ie., content is swapped out on the client side but no page refresh happens, Angular, React, jQuery, etc..\) and lots of asynchronous JS, you'll need to update Tiledesk when your user's data changes. A reInit call simulates a page refresh, causing Tiledesk to reload the widget and all the configurations.
+
+```text
+window.tiledesk.reInit();
+```
+
+### Make a logout
+
+This will logout the widget:
+
+```text
+window.tiledesk.logout();
+```
+
+### Show or hide the PreChatForm 
+
+This parameter configurare the PreChatForm visibility:
+
+```text
+window.tiledesk.setPreChatForm(true|false);
+```
+
 ## Events
 
 ### window.tiledesk.on\(event\_name, handler\)
 
 Register an event handler to an event type.
+
+Available events:
+
+| event\_name | description |
+| :--- | :--- |
+| loadParams | Fired when the parameters are loaded. |
+| beforeMessageSend | Fired before the message sending. |
+| afterMessageSend | This event is generated after the message has been sent. |
+| onInit | Fired when the widget is initialized |
+| onOpen | Fired when the widget is open |
+| onClose | Fired when the widget is closed |
+| onOpenEyeCatcher | Fired when the callout box is open |
+| onClosedEyeCatcher | Fired when the callout box is closed |
+| isLoggedIn | The event is generated when the user is logged in |
 
 The handler will have the signature function\(event\_data\).
 

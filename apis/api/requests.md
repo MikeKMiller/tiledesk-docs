@@ -23,10 +23,6 @@ the Project Id is a unique code assigned to your project when you create it in T
 {% api-method-parameter name="Authorization" type="string" required=true %}
 authorization token. Basic Auth or JWT
 {% endapi-method-parameter %}
-
-{% api-method-parameter name="Content-Type" type="string" required=true %}
-use "application/json" value
-{% endapi-method-parameter %}
 {% endapi-method-headers %}
 
 {% api-method-query-parameters %}
@@ -104,7 +100,7 @@ what page of results to fetch. defaults to first page.
 Example
 
 ```text
-curl -v -X GET -H 'Content-Type: application/json' -u andrea.leo@f21.it:123456 https://api.tiledesk.com/v1/5b55e806c93dde00143163dd/requests
+curl -v -X GET -u andrea.leo@f21.it:123456 https://api.tiledesk.com/v1/5b55e806c93dde00143163dd/requests
 ```
 
 {% api-method method="get" host="https://api.tiledesk.com" path="/v1/:project\_id/requests/:id" %}
@@ -113,7 +109,7 @@ Get a request by id
 {% endapi-method-summary %}
 
 {% api-method-description %}
-Fetches a lead by his or her request\_id
+Fetches a request by his or her request\_id
 {% endapi-method-description %}
 
 {% api-method-spec %}
@@ -131,10 +127,6 @@ the Project Id is a unique code assigned to your project when you create it in T
 {% api-method-headers %}
 {% api-method-parameter name="Authorization" type="string" required=true %}
 authorization token. Basic Auth or JWT
-{% endapi-method-parameter %}
-
-{% api-method-parameter name="Content-Type" type="string" required=true %}
-use "application/json" value
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
 
@@ -206,6 +198,6 @@ what page of results to fetch. defaults to first page.
 Example:
 
 ```text
-curl -v -X GET -H 'Content-Type: application/json' -u andrea.leo@f21.it:123456 https://api.tiledesk.com/v1/5b55e806c93dde00143163dd/requests/support-group-L_OG76RYhR0XFiMf2PK
+curl -v -X GET -u andrea.leo@f21.it:123456 https://api.tiledesk.com/v1/5b55e806c93dde00143163dd/requests/support-group-L_OG76RYhR0XFiMf2PK
 ```
 

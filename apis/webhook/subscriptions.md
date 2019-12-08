@@ -90,10 +90,6 @@ the Project Id is a unique code assigned to your project when you create it in T
 {% api-method-parameter name="Authorization" type="string" required=true %}
 authorization token. Basic Auth or JWT
 {% endapi-method-parameter %}
-
-{% api-method-parameter name="Content-Type" type="string" required=true %}
-use "application/json" value
-{% endapi-method-parameter %}
 {% endapi-method-headers %}
 {% endapi-method-request %}
 
@@ -114,8 +110,7 @@ use "application/json" value
    "event":"request.create",
    "id_project":"5b55e806c93dde00143163dd",
    "createdBy":"5ab11c6b83dc240014d46095",
-   "_id":"5c879fb4f1ae6600173b8c75",
-   "secret":"56c189c8-33ae-4930-bd98-410a12aa45ce"
+   "_id":"5c879fb4f1ae6600173b8c75"
 },
 ...
 ]
@@ -150,10 +145,6 @@ The project\_id is a unique code assigned to your project when you create it in 
 {% api-method-parameter name="Authorization" type="string" required=true %}
 authorization token. Basic Auth or JWT
 {% endapi-method-parameter %}
-
-{% api-method-parameter name="Content-Type" type="string" required=true %}
-use "application/json" value
-{% endapi-method-parameter %}
 {% endapi-method-headers %}
 {% endapi-method-request %}
 
@@ -173,8 +164,7 @@ use "application/json" value
    "event":"request.create",
    "id_project":"5b55e806c93dde00143163dd",
    "createdBy":"5ab11c6b83dc240014d46095",
-   "_id":"5c879fb4f1ae6600173b8c75",
-   "secret":"56c189c8-33ae-4930-bd98-410a12aa45ce"
+   "_id":"5c879fb4f1ae6600173b8c75"
 }
 ```
 {% endapi-method-response-example %}
@@ -206,10 +196,6 @@ The project\_id is a unique code assigned to your project when you create it in 
 {% api-method-headers %}
 {% api-method-parameter name="Authorization" type="string" required=true %}
 authorization token. Basic Auth or JWT
-{% endapi-method-parameter %}
-
-{% api-method-parameter name="Content-Type" type="string" required=true %}
-use "application/json" value
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
 {% endapi-method-request %}
